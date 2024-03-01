@@ -1,0 +1,11 @@
+.active {
+  background-color: var(--bs-primary);
+  border-radius: 5px;
+  color: white !important;
+}
+
+.sidebar:hover {
+  background-color: var(--bs-primary);
+  border-radius: 5px;
+  color: white !important;
+}

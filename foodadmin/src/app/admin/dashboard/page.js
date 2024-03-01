@@ -1,7 +1,6 @@
-
 function Page() {
     return (
-        <div>Dashboard</div>
+        <h1>Dashboard</h1>
     )
 }
 
