@@ -49,7 +49,7 @@ function Sidebar() {
     const pathname = usePathname();
 
     return (
-        <div style={{ height: "90vh" }}>
+        <div style={{ height: "88vh" }}>
             {navList.map((value) => {
                 const isActive = pathname === value.navigate;
                 return (
