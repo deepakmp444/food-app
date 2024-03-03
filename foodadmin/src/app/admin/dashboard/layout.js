@@ -11,6 +11,9 @@ export default function DashboardLayout({ children }) {
         <div className="col-sm-10" style={{marginLeft: "230px"}}>
           {children}
         </div>
+        {/* <div className="col-sm-12">
+          {children}
+        </div> */}
       </div>
     </div>
   )
