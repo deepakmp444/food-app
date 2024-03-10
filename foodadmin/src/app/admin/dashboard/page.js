@@ -64,7 +64,7 @@ function Page() {
                                 <Link href={"/admin/dashboard/analytics"} className='icon-link icon-link-hover mt-2'>Recent of Orders <MoveRight size={20} strokeWidth={1} absoluteStrokeWidth /></Link>
                             </div>
                             <Dropdown>
-                                <Dropdown.Toggle variant="light">
+                                <Dropdown.Toggle variant="primary">
                                     <CalendarDays size={20} strokeWidth={1} absoluteStrokeWidth /><span className='ms-1'>Today</span>
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu>
@@ -85,7 +85,7 @@ function Page() {
                             </div>
                             <div className='d-flex'>
                                 <Dropdown className='me-2'>
-                                    <Dropdown.Toggle variant="light">
+                                    <Dropdown.Toggle variant="primary">
                                         <FilePenLine size={20} strokeWidth={1} absoluteStrokeWidth /><span className='ms-1'>All Status</span>
                                     </Dropdown.Toggle>
                                     <Dropdown.Menu>
@@ -96,7 +96,7 @@ function Page() {
                                 </Dropdown>
 
                                 <Dropdown>
-                                    <Dropdown.Toggle variant="light">
+                                    <Dropdown.Toggle variant="primary">
                                         <CalendarDays size={20} strokeWidth={1} absoluteStrokeWidth /><span className='ms-1'>Today</span>
                                     </Dropdown.Toggle>
                                     <Dropdown.Menu>

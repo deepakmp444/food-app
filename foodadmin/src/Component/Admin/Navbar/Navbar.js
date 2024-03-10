@@ -10,7 +10,7 @@ function Navbar() {
             </div>
             <div>
                 <Dropdown>
-                    <Dropdown.Toggle variant="light" id="dropdown-basic">
+                    <Dropdown.Toggle variant="primary" id="dropdown-basic">
                         Deepak
                     </Dropdown.Toggle>
 

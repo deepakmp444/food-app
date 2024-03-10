@@ -13,19 +13,19 @@ const navList = [
         navigate: "/admin/dashboard"
     },
     {
-        name: "Order List",
+        name: "Orders",
         id: 2,
         icon: <ListOrdered size={22} strokeWidth={1} absoluteStrokeWidth />,
         navigate: "/admin/dashboard/order"
     },
     {
-        name: "Food",
+        name: "Foods",
         id: 3,
         icon: <Coffee size={22} strokeWidth={1} absoluteStrokeWidth />,
         navigate: "/admin/dashboard/food"
     },
     {
-        name: "User",
+        name: "Users",
         id: 4,
         icon: <Users size={22} strokeWidth={1} absoluteStrokeWidth />,
         navigate: "/admin/dashboard/user"
