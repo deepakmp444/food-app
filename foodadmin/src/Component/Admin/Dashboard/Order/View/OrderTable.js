@@ -16,36 +16,36 @@ function OrderTable() {
                 </thead>
                 <tbody>
                     <tr>
-                        <th className='text-muted'>#1212</th>
+                        <td className='text-muted'>#1212</td>
                         <td>26 March 2024, 12:20 PM</td>
                         <td>Deepak Kumar</td>
-                        <td><IndianRupee size={16} color="#48a91e" strokeWidth={1} />123.00</td>
+                        <td><IndianRupee size={16} color="#48a91e" strokeWidth={2} />123.00</td>
                         <td><span className='badge text-bg-warning'>Pending</span></td>
                         <td><Milk size={18} strokeWidth={2} /> <MapPin size={18} color="#48a91e" strokeWidth={2} />  <BookUser size={18} strokeWidth={2} /></td>
                     </tr>
                     <tr>
-                        <th className='text-muted'>#1213</th>
+                        <td className='text-muted'>#1213</td>
                         <td>26 March 2024, 12:21 PM</td>
                         <td>Cache</td>
-                        <td><IndianRupee size={16} color="#48a91e" strokeWidth={1} />123.00</td>
+                        <td><IndianRupee size={16} color="#48a91e" strokeWidth={2} />123.00</td>
                         <td><span className='badge text-bg-warning'>Pending</span></td>
                         <td><Milk size={18} strokeWidth={2} /> <MapPin size={18} color="#48a91e" strokeWidth={2} />  <BookUser size={18} strokeWidth={2} /></td>
                     </tr>
                     <tr>
-                        <th className='text-muted'>#1214</th>
+                        <td className='text-muted'>#1214</td>
                         <td>26 March 2024, 12:21 PM</td>
                         <td>Ujjwal</td>
-                        <td><IndianRupee size={16} color="#48a91e" strokeWidth={1} />123.00</td>
+                        <td><IndianRupee size={16} color="#48a91e" strokeWidth={2} />123.00</td>
                         <td><span className='badge text-bg-warning'>Pending</span></td>
                         <td><Milk size={18} strokeWidth={2} /> <MapPin size={18} color="#48a91e" strokeWidth={2} />  <BookUser size={18} strokeWidth={2} /></td>
                     </tr>
 
                     <tr>
-                        <th className='text-muted'>#1212</th>
+                        <td className='text-muted'>#1212</td>
                         <td>26 March 2024, 12:20 PM</td>
                         <td>Deepak Kumar</td>
                         
-                        <td><IndianRupee size={16} color="#48a91e" strokeWidth={1} />123.00</td>
+                        <td><IndianRupee size={16} color="#48a91e" strokeWidth={2} />123.00</td>
                         <td><span className='badge text-bg-warning'>Pending</span></td>
                         <td><Milk size={18} strokeWidth={2} /> <MapPin size={18} color="#48a91e" strokeWidth={2} />  <BookUser size={18} strokeWidth={2} /></td>
                     </tr>
@@ -53,24 +53,24 @@ function OrderTable() {
                         <th className='text-muted'>#1213</th>
                         <td>26 March 2024, 12:21 PM</td>
                         <td>Cache</td>
-                        <td><IndianRupee size={16} color="#48a91e" strokeWidth={1} />123.00</td>
+                        <td><IndianRupee size={16} color="#48a91e" strokeWidth={2} />123.00</td>
                         <td><span className='badge text-bg-warning'>Pending</span></td>
                         <td><Milk size={18} strokeWidth={2} /> <MapPin size={18} color="#48a91e" strokeWidth={2} />  <BookUser size={18} strokeWidth={2} /></td>
                     </tr>
                     <tr>
-                        <th className='text-muted'>#1214</th>
+                        <td className='text-muted'>#1214</td>
                         <td>26 March 2024, 12:21 PM</td>
                         <td>Ujjwal</td>
-                        <td><IndianRupee size={16} color="#48a91e" strokeWidth={1} />123.00</td>
+                        <td><IndianRupee size={16} color="#48a91e" strokeWidth={2} />123.00</td>
                         <td><span className='badge text-bg-warning'>Pending</span></td>
                         <td><Milk size={18} strokeWidth={2} /> <MapPin size={18} color="#48a91e" strokeWidth={2} />  <BookUser size={18} strokeWidth={2} /></td>
                     </tr>
 
                     <tr>
-                        <th className='text-muted'>#1212</th>
+                        <td className='text-muted'>#1212</td>
                         <td>26 March 2024, 12:20 PM</td>
                         <td>Deepak Kumar</td>
-                        <td><IndianRupee size={16} color="#48a91e" strokeWidth={1} />123.00</td>
+                        <td><IndianRupee size={16} color="#48a91e" strokeWidth={2} />123.00</td>
                         <td><span className='badge text-bg-warning'>Pending</span></td>
                         <td><Milk size={18} strokeWidth={2} /> <MapPin size={18} color="#48a91e" strokeWidth={2} />  <BookUser size={18} strokeWidth={2} /></td>
                     </tr>
@@ -78,23 +78,23 @@ function OrderTable() {
                         <th className='text-muted'>#1213</th>
                         <td>26 March 2024, 12:21 PM</td>
                         <td>Cache</td>
-                        <td><IndianRupee size={16} color="#48a91e" strokeWidth={1} />123.00</td>
+                        <td><IndianRupee size={16} color="#48a91e" strokeWidth={2} />123.00</td>
                         <td><span className='badge text-bg-warning'>Pending</span></td>
                         <td><Milk size={18} strokeWidth={2} /> <MapPin size={18} color="#48a91e" strokeWidth={2} />  <BookUser size={18} strokeWidth={2} /></td>
                     </tr>
                     <tr>
-                        <th className='text-muted'>#1214</th>
+                        <td className='text-muted'>#1214</td>
                         <td>26 March 2024, 12:21 PM</td>
                         <td>Ujjwal</td>
-                        <td><IndianRupee size={16} color="#48a91e" strokeWidth={1} />123.00</td>
+                        <td><IndianRupee size={16} color="#48a91e" strokeWidth={2} />123.00</td>
                         <td><span className='badge text-bg-warning'>Pending</span></td>
                         <td><Milk size={18} strokeWidth={2} /> <MapPin size={18} color="#48a91e" strokeWidth={2} />  <BookUser size={18} strokeWidth={2} /></td>
                     </tr>
                     <tr>
-                        <th className='text-muted'>#1214</th>
+                        <td className='text-dark'>#1214</td>
                         <td>26 March 2024, 12:21 PM</td>
                         <td>Ujjwal</td>
-                        <td><IndianRupee size={16} color="#48a91e" strokeWidth={1} />123.00</td>
+                        <td><IndianRupee size={16} color="#48a91e" strokeWidth={2} />123.00</td>
                         <td><span className='badge text-bg-warning'>Pending</span></td>
                         <td><Milk size={18} strokeWidth={2} /> <MapPin size={18} color="#48a91e" strokeWidth={2} />  <BookUser size={18} strokeWidth={2} /></td>
                     </tr>

@@ -1,5 +1,5 @@
-import AutoComplete from "@/Component/Shared/AutoComplete/AutoComplete"
-import Card from "@/Component/Shared/Card/Card"
+import Search from "@/component/Search/Search"
+import CardImageText from "@/component/CardImageText/CardImageText"
 
 function Page() {
   return (
@@ -18,7 +18,7 @@ function Page() {
         <div className="text-center" style={{ fontWeight: "800", fontSize: "50px" }}>Gullar</div>
         <div className="offset-sm-2 col-sm-8 offset-sm-2 mt-3">
           <div>
-            <AutoComplete />
+            <Search />
           </div>
         </div>
         <div className="text-center text-muted mt-4" style={{ fontWeight: "400", fontSize: "15px" }}>It is your data, search anything near by you</div>
@@ -27,28 +27,28 @@ function Page() {
 
       <div className="row">
         <div className="col-sm-2 mt-5">
-          <Card />
+          <CardImageText />
         </div>
         <div className="col-sm-2 mt-5">
-          <Card />
+          <CardImageText />
         </div>
         <div className="col-sm-2 mt-5">
-          <Card />
+          <CardImageText />
         </div>
         <div className="col-sm-2 mt-5">
-          <Card />
+          <CardImageText />
         </div>
         <div className="col-sm-2 mt-5">
-          <Card />
+          <CardImageText />
         </div>
         <div className="col-sm-2 mt-5">
-          <Card />
+          <CardImageText />
         </div>
         <div className="col-sm-2 mt-5">
-          <Card />
+          <CardImageText />
         </div>
         <div className="col-sm-2 mt-5">
-          <Card />
+          <CardImageText />
         </div>
       </div>
       <p className="text-center" style={{ marginTop: "100px", fontWeight: "800", fontSize: "15px" }}>Gullar.in</p>
