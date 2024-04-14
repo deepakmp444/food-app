@@ -1,5 +1,28 @@
 :root {
- --lightprimary: #35A4FB;
+  --lightprimary: #35a4fb;
+}
+
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+  --bs-gutter-x: 0rem !important;
 }
 
 
+/* CSS for changing scrollbar color */
+.sidebar::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0); /* Transparent background */
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #5b5858; /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Rounded corners */
+}
