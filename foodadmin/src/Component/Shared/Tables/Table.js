@@ -4,7 +4,7 @@ function OrderTable() {
     return (
         <div>
             <table className="table table-hover table-responsive border rounded-lg mt-2">
-                <thead className='table-primary'>
+                <thead className='table-secondary'>
                     <tr>
                         <th scope="col">Order ID <ChevronsUpDown size={16} strokeWidth={2} /></th>
                         <th scope="col">Date <ChevronsUpDown size={16} strokeWidth={2} /></th>

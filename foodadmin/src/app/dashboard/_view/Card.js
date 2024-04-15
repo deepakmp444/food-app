@@ -1,4 +1,3 @@
-
 function Card({ value }) {
     return (
         <div className="border bg-white p-3">

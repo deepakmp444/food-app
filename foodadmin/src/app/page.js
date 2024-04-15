@@ -1,57 +1,89 @@
-import AutoComplete from "@/Component/Shared/AutoComplete/AutoComplete"
-import Card from "@/Component/Shared/Card/Card"
+import GoogleIcon from "@/icon/GoogleIcon";
+import LockIcon from "@/icon/LockIcon";
+import { User } from "lucide-react";
+import Link from "next/link";
+
 
 function Page() {
   return (
-    <div className="container-fluid">
-      <div className="row p-3 border-bottom border bg-white sticky-top">
-        <div className="col">
-          <h6 className="text-muted mt-2">Kahalgaon!</h6>
-        </div>
-        <div className="col d-flex justify-content-end">
-          <button className="btn text-primary me-1">Add business</button>
-          <button className="btn btn-outline-primary me-1">Log in</button>
-          <button className="btn btn-primary">Sign up</button>
-        </div>
-      </div>
-      <div className="row mt-5">
-        <div className="text-center" style={{ fontWeight: "800", fontSize: "50px" }}>Gullar</div>
-        <div className="offset-sm-2 col-sm-8 offset-sm-2 mt-3">
-          <div>
-            <AutoComplete />
+    <div className="container">
+      <div className="row" style={{ marginTop: "100px" }}>
+        <div className="col-sm-12 col-md-12 col-lg-4 offset-lg-4">
+          <div className={`p-4`}>
+            <div
+              className="text-center mb-4"
+              style={{ fontSize: "20px", fontWeight: "600" }}
+            >
+              Brand Name
+            </div>
+            <h5>Sign in</h5>
+            <div className="input-group mb-3 mt-3">
+              <span className="input-group-text" id="basic-addon1">
+                <User />
+              </span>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="email"
+                aria-label="email"
+                aria-describedby="email"
+              />
+            </div>
+            <div className="input-group mb-3">
+              <span className="input-group-text" id="basic-addon1">
+                <LockIcon />
+              </span>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="password"
+                aria-label="password"
+                aria-describedby="password"
+              />
+            </div>
+            <div className="d-flex justify-content-between">
+              <div class="form-check">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckChecked"
+                />
+                <label class="form-check-label" for="flexCheckChecked">
+                  Remember
+                </label>
+              </div>
+              <div>
+                <Link
+                  href="/fpassword"
+                >
+                  Forgot password
+                </Link>
+              </div>
+            </div>
+            <div className="d-grid mt-3">
+              <button className="btn btn-primary" type="button">
+                Sign in
+              </button>
+              <p className="text-center mt-3">
+                <u>OR</u>
+              </p>
+              <button className="btn btn-dark" type="button">
+                <span className="me-2">
+                  <GoogleIcon />
+                </span>
+                Continue with Google
+              </button>
+            </div>
+            <div className="text-center mt-3">
+              Don&apos;t have an account?
+              <Link href="/signup" className="ms-2">
+                Click
+              </Link>
+            </div>
           </div>
         </div>
-        <div className="text-center text-muted mt-4" style={{ fontWeight: "400", fontSize: "15px" }}>It is your data, search anything near by you</div>
       </div>
-      <div className="text-center" style={{ fontWeight: "800", fontSize: "25px", marginTop: "200px" }}>Explore our categories</div>
-
-      <div className="row">
-        <div className="col-sm-2 mt-5">
-          <Card />
-        </div>
-        <div className="col-sm-2 mt-5">
-          <Card />
-        </div>
-        <div className="col-sm-2 mt-5">
-          <Card />
-        </div>
-        <div className="col-sm-2 mt-5">
-          <Card />
-        </div>
-        <div className="col-sm-2 mt-5">
-          <Card />
-        </div>
-        <div className="col-sm-2 mt-5">
-          <Card />
-        </div>
-        <div className="col-sm-2 mt-5">
-          <Card />
-        </div>
-        <div className="col-sm-2 mt-5">
-          <Card />
-        </div>
-      </div>
-      <p className="text-center" style={{ marginTop: "100px", fontWeight: "800", fontSize: "15px" }}>Gullar.in</p>
     </div>
   )
 }

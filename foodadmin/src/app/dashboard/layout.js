@@ -138,7 +138,7 @@ function DashboardLayout({ children }) {
                     className="overflow-auto sidebar border-bottom border-2 border-light border-opacity-10"
                     style={{ height: "calc(100% - 8.5%)" }}
                 >
-                    <div style={{fontSize:"14px"}}>
+                    <div style={{ fontSize: "14px" }}>
                         {navList.map((item) => (
                             <div key={item.id}>
                                 <div
@@ -204,7 +204,7 @@ function DashboardLayout({ children }) {
                 }}
             >
                 <div
-                    className="bg-white p-3 border-bottom border-2 fixed-top"
+                    className="bg-white p-3 border-bottom border-1 fixed-top"
                     style={{
                         marginLeft: isOpen ? "5vw" : "15vw",
                         // transition: "margin-left 0.5s ease-in-out"
@@ -246,7 +246,7 @@ function DashboardLayout({ children }) {
                                 </MenuItem>
                             </Menu>
 
-                            <div class="vr mt-2" style={{ height: "22px" }}></div>
+                            <div className="vr mt-2" style={{ height: "22px" }}></div>
                             <button type="button" className="btn position-relative">
                                 <Bell size={20} />{" "}
                                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger">
@@ -286,7 +286,7 @@ function DashboardLayout({ children }) {
                         </div>
                     </div>
                 </div>
-                <div className="p-2" style={{ marginTop: "50px" }}>
+                <div style={{ marginTop: "50px" }}>
                     {children}
                 </div>
             </div>
