@@ -1,52 +1,15 @@
+"use client"
+import React, { useRef, useState } from 'react';
+import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
+
+
 function Dashboard() {
+
     return (
-        <div>Dashboard
-
-<h1>What is Lorem Ipsum?</h1>
-
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-<h1>What is Lorem Ipsum?</h1>
-
+        <div>
+            <h1>Dashboard</h1>
         </div>
-    )
+    );
 }
 
-export default Dashboard
+export default Dashboard;
