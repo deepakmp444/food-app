@@ -1,10 +1,13 @@
+'use client'
 import GoogleIcon from "@/icon/GoogleIcon";
 import LockIcon from "@/icon/LockIcon";
 import { User } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 
 function Page() {
+  const router = useRouter()
   return (
     <div className="container">
       <div className="row" style={{ marginTop: "100px" }}>
@@ -62,13 +65,13 @@ function Page() {
               </div>
             </div>
             <div className="d-grid mt-3">
-              <button className="btn btn-primary" type="button">
+              <button className="btn btn-primary" type="button" onClick={()=> router.push("/dashboard")}>
                 Sign in
               </button>
               <p className="text-center mt-3">
                 <u>OR</u>
               </p>
-              <button className="btn btn-dark" type="button">
+              <button className="btn btn-light" type="button">
                 <span className="me-2">
                   <GoogleIcon />
                 </span>

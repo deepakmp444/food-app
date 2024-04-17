@@ -60,7 +60,7 @@ function SignUp() {
               <p className="text-center mt-3">
                 <u>OR</u>
               </p>
-              <button className="btn btn-dark" type="button">
+              <button className="btn btn-light" type="button">
                 <span className="me-2">
                   <GoogleIcon />
                 </span>
