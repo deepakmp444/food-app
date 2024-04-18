@@ -9,11 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ant-design/icons": "^5.3.6",
-    "@ant-design/nextjs-registry": "^1.0.0",
     "@szhsin/react-menu": "^4.1.0",
     "@wojtekmaj/react-daterange-picker": "^5.5.0",
-    "antd": "^5.16.2",
     "bootstrap": "^5.3.3",
     "dayjs": "^1.11.10",
     "lucide-react": "^0.343.0",
