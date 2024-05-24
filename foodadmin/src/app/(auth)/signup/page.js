@@ -68,7 +68,7 @@ function SignUp() {
               </button>
             </div>
             <div className="text-center mt-3">
-              <Link href="/" className="ms-2">
+              <Link href="/tab?name=shop" className="ms-2">
                 Sign in
               </Link>
             </div>

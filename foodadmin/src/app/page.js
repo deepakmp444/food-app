@@ -1,13 +1,12 @@
-'use client'
+"use client";
 import GoogleIcon from "@/icon/GoogleIcon";
 import LockIcon from "@/icon/LockIcon";
 import { User } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-
 function Page() {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <div className="container">
       <div className="row" style={{ marginTop: "100px" }}>
@@ -45,27 +44,27 @@ function Page() {
               />
             </div>
             <div className="d-flex justify-content-between">
-              <div class="form-check">
+              <div className="form-check">
                 <input
                   className="form-check-input"
                   type="checkbox"
                   value=""
                   id="flexCheckChecked"
                 />
-                <label class="form-check-label" for="flexCheckChecked">
+                <label className="form-check-label" for="flexCheckChecked">
                   Remember
                 </label>
               </div>
               <div>
-                <Link
-                  href="/fpassword"
-                >
-                  Forgot password
-                </Link>
+                <Link href="/fpassword">Forgot password</Link>
               </div>
             </div>
             <div className="d-grid mt-3">
-              <button className="btn btn-primary" type="button" onClick={()=> router.push("/dashboard")}>
+              <button
+                className="btn btn-primary"
+                type="button"
+                onClick={() => router.push("/tab?name=Shop")}
+              >
                 Sign in
               </button>
               <p className="text-center mt-3">
@@ -88,7 +87,7 @@ function Page() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Page
+export default Page;

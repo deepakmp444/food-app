@@ -1,10 +1,9 @@
 :root {
   --lightprimary: #35a4fb;
+  --darksidebar: #31363b;
+  --tabbgcolor: #edf1f6;
+  --tableheadbgcolor: #e2e7ef;
 }
-
-/* .container-fluid{
-  --bs-gutter-x: 0rem !important;
-} */
 
 /* CSS for changing scrollbar color */
 .sidebar::-webkit-scrollbar {
@@ -20,15 +19,25 @@
   border-radius: 0px !important; /* Rounded corners */
 }
 
-/* .ant-table-thead .ant-table-cell {
-  background-color: rgb(241, 241, 241) !important;
-} */
+/* CSS for hide scrollbar color */
+.hidescrollbar::-webkit-scrollbar {
+  width: 0px; /* Width of the scrollbar */
+}
+
+.hidescrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0) !important; /* Transparent background */
+}
+
+.hidescrollbar::-webkit-scrollbar-thumb {
+  background-color: #1777ff !important; /* Color of the scrollbar thumb */
+  border-radius: 0px !important; /* Rounded corners */
+}
 
 .btn {
   border-radius: 0px !important;
 }
 
-.dropdown-menu { 
+.dropdown-menu {
   border-radius: 0px !important;
 }
 
@@ -42,10 +51,38 @@
   box-shadow: 0 0 0px rgb(4, 5, 44) !important;
 }
 
-.form-check-input[type=checkbox] {
+.form-check-input[type="checkbox"] {
   border-radius: 0em !important;
 }
 
 .form-check-input:focus {
-  box-shadow: 0 0 0 0rem rgba(13,110,253,.25) !important;
+  box-shadow: 0 0 0 0rem rgba(13, 110, 253, 0.25) !important;
 }
+
+.form-select {
+  border-radius: 0px !important;
+  width: 100% !important;
+}
+
+.form-select:focus {
+  box-shadow: 0 0 0 0rem rgba(13, 110, 253, 0.25) !important;
+}
+
+.btn-close {
+  border-radius: 0rem !important;
+}
+
+.szh-menu {
+  z-index: 99999999 !important;
+}
+
+.table > thead > tr > th {
+  background-color: var(--tableheadbgcolor);
+}
+
+.nav-underline .nav-link.active, .nav-underline .show>.nav-link {
+    font-weight: 700;
+    color: #0d6efd !important;
+    border-bottom-color: currentcolor;
+}
+

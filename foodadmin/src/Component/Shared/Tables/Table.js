@@ -4,7 +4,7 @@ function OrderTable() {
     return (
         <div className="table-responsive">
             <table className="table table-hover border mt-2">
-                <thead className='table-secondary'>
+                <thead>
                     <tr>
                         <th scope="col">Order ID <ChevronsUpDown size={16} /></th>
                         <th scope="col">Date <ChevronsUpDown size={16} /></th>

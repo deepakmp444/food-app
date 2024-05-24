@@ -14,9 +14,9 @@ function Orders() {
     <div className="container" style={{ marginTop: "80px" }}>
       <div className='row'>
         <div className="col-sm-3">
-          <div class="input-group mb-2">
-            <input type="text" class="form-control" placeholder="Order ID, User name" aria-label="orderid" aria-describedby="orderid" />
-            <button class="btn btn-outline-primary" type="button" id="button-addon2"><Search /></button>
+          <div className="input-group mb-2">
+            <input type="text" className="form-control" placeholder="Order ID, User name" aria-label="orderid" aria-describedby="orderid" />
+            <button className="btn btn-outline-primary" type="button" id="button-addon2"><Search /></button>
           </div>
         </div>
         <div className='col-sm-9'>
