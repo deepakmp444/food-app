@@ -66,6 +66,7 @@ function Search() {
                 onSelect={handleOnSelect}
                 onFocus={handleOnFocus}
                 autoFocus
+                placeholder='Search...'
                 formatResult={formatResult}
             />
         </>
