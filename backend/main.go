@@ -5,8 +5,8 @@ import (
 	"net/http"
 
 	"github.com/deepakmp444/food-app/backend/config"
+	userauth "github.com/deepakmp444/food-app/backend/pkg/UserAuth"
 	// "github.com/deepakmp444/food-app/backend/middleware"
-	"github.com/deepakmp444/food-app/backend/router"
 	"github.com/gorilla/mux"
 )
 
@@ -21,7 +21,7 @@ func main() {
 
 	// r.Use(middleware.ErrorHandler)
 
-	router.UserRouter(r)
+	userauth.UserRouter(r)
 
-	log.Fatal(http.ListenAndServe(":4001", r))
+	log.Fatal(http.ListenAndServe(":4000", r))
 }

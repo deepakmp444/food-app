@@ -1,4 +1,4 @@
-package model
+package util
 
 // Restaurant represents the structure of a restaurant document
 type Restaurant struct {

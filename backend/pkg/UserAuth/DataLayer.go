@@ -1,4 +1,4 @@
-package datalayer
+package userauth
 
 import (
 	"context"
@@ -7,13 +7,13 @@ import (
 	// "fmt"
 	"log"
 
-	"github.com/deepakmp444/food-app/backend/model"
+	userauth "github.com/deepakmp444/food-app/backend/pkg/UserAuth"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-func UserDataLayer(ctx context.Context, db *mongo.Database, user model.User) (primitive.ObjectID, error) {
+func UserDataLayer(ctx context.Context, db *mongo.Database, user userauth.User) (primitive.ObjectID, error) {
 	// Insert the user document into the "users" collection
 	result, err := db.Collection("users").InsertOne(ctx, user)
 	if err != nil {
@@ -30,12 +30,12 @@ func UserDataLayer(ctx context.Context, db *mongo.Database, user model.User) (pr
 	return insertedID, nil
 }
 
-func GetUserByEmail(ctx context.Context, db *mongo.Database, email string) (model.User, error) {
+func GetUserByEmail(ctx context.Context, db *mongo.Database, email string) (userauth.User, error) {
 
-	var user model.User
+	var user userauth.User
 	err := db.Collection("users").FindOne(context.Background(), bson.M{"email": email}).Decode(&user)
 	if err != nil {
-		return model.User{}, err
+		return userauth.User{}, err
 	}
 
 	return user, nil

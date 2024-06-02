@@ -20,6 +20,6 @@ func ConnectMongoDB() error {
         return err
     }
 
-    MongoDB = client.Database("go-newapi")
+    MongoDB = client.Database("Gullar")
     return nil // Return nil if connection is successful
 }

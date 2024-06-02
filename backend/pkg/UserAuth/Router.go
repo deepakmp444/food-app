@@ -1,11 +1,11 @@
-package router
+package userauth
 
 import (
 	"context"
 	"net/http"
 
-	"github.com/deepakmp444/food-app/backend/controller"
 	"github.com/deepakmp444/food-app/backend/middleware"
+	userauth "github.com/deepakmp444/food-app/backend/pkg/UserAuth"
 	"github.com/gorilla/mux"
 )
 
@@ -53,8 +53,8 @@ func allUsersController(w http.ResponseWriter, r *http.Request) {
 }
 
 func UserRouter(route *mux.Router) {
-	route.HandleFunc("/api/user", controller.UserController).Methods("POST")
-	route.HandleFunc("/api/login", controller.UserLoginController).Methods("POST")
-	route.HandleFunc("/api/user", middleware.IsLoggedIn(controller.AllUsersController)).Methods("GET")
-	route.HandleFunc("/api/zomato", controller.AllOrderListController).Methods("GET")
+	route.HandleFunc("/api/user", userauth.UserController).Methods("POST")
+	route.HandleFunc("/api/login", userauth.UserLoginController).Methods("POST")
+	route.HandleFunc("/api/user", middleware.IsLoggedIn(userauth.AllUsersController)).Methods("GET")
+	route.HandleFunc("/api/zomato", userauth.AllOrderListController).Methods("GET")
 }
