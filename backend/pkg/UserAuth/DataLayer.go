@@ -3,81 +3,65 @@ package userauth
 import (
 	"context"
 	"errors"
-
-	// "fmt"
 	"log"
 
-	userauth "github.com/deepakmp444/food-app/backend/pkg/UserAuth"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-func UserDataLayer(ctx context.Context, db *mongo.Database, user userauth.User) (primitive.ObjectID, error) {
-	// Insert the user document into the "users" collection
+func UserDataLayer(ctx context.Context, db *mongo.Database, user User) (primitive.ObjectID, error) {
 	result, err := db.Collection("users").InsertOne(ctx, user)
 	if err != nil {
-		// If there's an error during insertion, return it
-		return primitive.NilObjectID, errors.New("inserted ID is not of type primitive.ObjectID")
+		log.Println("Error inserting user:", err)
+		return primitive.NilObjectID, errors.New("could not insert user")
 	}
 
-	// Extract and return the ID of the inserted document
 	insertedID, ok := result.InsertedID.(primitive.ObjectID)
 	if !ok {
-		// If the inserted ID is not of type primitive.ObjectID, return an error
+		log.Println("Inserted ID is not of type primitive.ObjectID")
 		return primitive.NilObjectID, errors.New("inserted ID is not of type primitive.ObjectID")
 	}
 	return insertedID, nil
 }
 
-func GetUserByEmail(ctx context.Context, db *mongo.Database, email string) (userauth.User, error) {
-
-	var user userauth.User
-	err := db.Collection("users").FindOne(context.Background(), bson.M{"email": email}).Decode(&user)
-	if err != nil {
-		return userauth.User{}, err
+func GetUserByEmail(ctx context.Context, db *mongo.Database, email string) (User, error) {
+	var user User
+	if err := db.Collection("users").FindOne(ctx, bson.M{"email": email}).Decode(&user); err != nil {
+		log.Println("Error finding user by email:", err)
+		return User{}, err
 	}
-
 	return user, nil
 }
 
 func AllUsersDataLayer(ctx context.Context, db *mongo.Database) ([]primitive.M, error) {
-
-	cur, err := db.Collection("users").Find(context.Background(), bson.D{{}})
+	cur, err := db.Collection("users").Find(ctx, bson.D{{}})
 	if err != nil {
-		log.Fatal(err)
+		log.Println("Error finding all users:", err)
+		return nil, err
 	}
+	defer cur.Close(ctx)
 
 	var users []primitive.M
-	for cur.Next(context.Background()) {
-		var user bson.M
-		err := cur.Decode(&user)
-		if err != nil {
-			log.Fatal(err)
-		}
-		users = append(users, user)
+	if err := cur.All(ctx, &users); err != nil {
+		log.Println("Error decoding all users:", err)
+		return nil, err
 	}
-	defer cur.Close(context.Background())
 	return users, nil
 }
 
 func AllOrderListDataLayer(ctx context.Context, db *mongo.Database) ([]primitive.M, error) {
-
-	cur, err := db.Collection("list").Find(context.Background(), bson.D{{}})
+	cur, err := db.Collection("list").Find(ctx, bson.D{{}})
 	if err != nil {
-		log.Fatal(err)
+		log.Println("Error finding all orders:", err)
+		return nil, err
 	}
+	defer cur.Close(ctx)
 
-	var users []primitive.M
-	for cur.Next(context.Background()) {
-		var user bson.M
-		err := cur.Decode(&user)
-		if err != nil {
-			log.Fatal(err)
-		}
-		users = append(users, user)
+	var orders []primitive.M
+	if err := cur.All(ctx, &orders); err != nil {
+		log.Println("Error decoding all orders:", err)
+		return nil, err
 	}
-	// fmt.Println(users)
-	defer cur.Close(context.Background())
-	return users, nil
+	return orders, nil
 }

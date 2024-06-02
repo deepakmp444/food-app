@@ -7,22 +7,24 @@ import (
 	"net/http"
 
 	"github.com/deepakmp444/food-app/backend/middleware"
-	response "github.com/deepakmp444/food-app/backend/pkg/Response"
-	userauth "github.com/deepakmp444/food-app/backend/pkg/UserAuth"
+	responsejson "github.com/deepakmp444/food-app/backend/pkg/ResponseJson"
 	"github.com/deepakmp444/food-app/backend/util"
 	"github.com/golang-jwt/jwt/v5"
 )
 
 func UserController(w http.ResponseWriter, r *http.Request) {
-	var user userauth.User
-	err := json.NewDecoder(r.Body).Decode(&user)
-	if err != nil {
-		log.Fatal(err)
+	var user User
+	if err := json.NewDecoder(r.Body).Decode(&user); err != nil {
+		log.Println("Error decoding user data:", err)
+		responsejson.JsonResponse(w, http.StatusBadRequest, responsejson.Response{Message: "Invalid input", Status: false, Data: nil})
+		return
 	}
-	userData, err := userauth.UserService(user)
+
+	userData, err := UserService(user)
 	if err != nil {
-		log.Fatal(err)
-		response.JsonResponse(w, http.StatusInternalServerError, userauth.Response{Message: "Internal server Errror", Status: false, Data: nil})
+		log.Println("Error in UserService:", err)
+		responsejson.JsonResponse(w, http.StatusInternalServerError, responsejson.Response{Message: "Internal server error", Status: false, Data: nil})
+		return
 	}
 
 	user.ID = userData
@@ -30,36 +32,36 @@ func UserController(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Access-Control-Allow-Methods", "POST")
-	response.JsonResponse(w, http.StatusOK, userauth.Response{Message: "Successfully added", Status: true, Data: user})
-
+	responsejson.JsonResponse(w, http.StatusOK, responsejson.Response{Message: "Successfully added", Status: true, Data: user})
 }
 
 func UserLoginController(w http.ResponseWriter, r *http.Request) {
 	var userLoginData map[string]string
-	err := json.NewDecoder(r.Body).Decode(&userLoginData)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	// Check if userLoginData is empty or missing required fields
-	if len(userLoginData) == 0 || userLoginData["email"] == "" || userLoginData["password"] == "" {
-		response.JsonResponse(w, http.StatusBadRequest, userauth.Response{Message: "Email and password are required for login", Status: false, Data: nil})
+	if err := json.NewDecoder(r.Body).Decode(&userLoginData); err != nil {
+		log.Println("Error decoding login data:", err)
+		responsejson.JsonResponse(w, http.StatusBadRequest, responsejson.Response{Message: "Invalid input", Status: false, Data: nil})
 		return
 	}
 
-	userData, err := userauth.UserLoginService(userLoginData)
+	if userLoginData["email"] == "" || userLoginData["password"] == "" {
+		responsejson.JsonResponse(w, http.StatusBadRequest, responsejson.Response{Message: "Email and password are required", Status: false, Data: nil})
+		return
+	}
 
+	userData, err := UserLoginService(userLoginData)
 	if err != nil {
-		fmt.Println(err)
-		response.JsonResponse(w, http.StatusBadRequest, userauth.Response{Message: err.Error(), Status: false, Data: nil})
+		log.Println("Error in UserLoginService:", err)
+		responsejson.JsonResponse(w, http.StatusBadRequest, responsejson.Response{Message: err.Error(), Status: false, Data: nil})
 		return
 	}
 
 	tokenString, err := util.CreateToken(userData)
 	if err != nil {
-		response.JsonResponse(w, http.StatusInternalServerError, userauth.Response{Message: "Error creating token", Status: true, Data: nil})
+		log.Println("Error creating token:", err)
+		responsejson.JsonResponse(w, http.StatusInternalServerError, responsejson.Response{Message: "Error creating token", Status: false, Data: nil})
 		return
 	}
+
 	cookie := http.Cookie{
 		Name:     "token",
 		Value:    tokenString,
@@ -71,48 +73,42 @@ func UserLoginController(w http.ResponseWriter, r *http.Request) {
 	}
 	http.SetCookie(w, &cookie)
 	w.Header().Set("Access-Control-Allow-Methods", "POST")
-	response.JsonResponse(w, http.StatusOK, userauth.Response{Message: "Login Successfully", Status: true, Data: userData})
+	responsejson.JsonResponse(w, http.StatusOK, responsejson.Response{Message: "Login successfully", Status: true, Data: userData})
 }
 
-// Controller function for fetching all users
 func AllUsersController(w http.ResponseWriter, r *http.Request) {
-	// Retrieve isLoggedIn status from the request context using custom context key
 	isLoggedIn := r.Context().Value(middleware.KeyToken)
-
 	if isLoggedIn != nil {
 		token, ok := isLoggedIn.(*jwt.Token)
-		if !ok {
-			response.JsonResponse(w, http.StatusUnauthorized, userauth.Response{Message: "Invalid token", Status: false, Data: nil})
+		if !ok || !token.Valid {
+			responsejson.JsonResponse(w, http.StatusUnauthorized, responsejson.Response{Message: "Invalid token", Status: false, Data: nil})
 			return
 		}
 
-		// If the token is valid, you can access its claims
 		claims, ok := token.Claims.(jwt.MapClaims)
-		if !ok || !token.Valid {
-			response.JsonResponse(w, http.StatusUnauthorized, userauth.Response{Message: "Invalid token", Status: false, Data: nil})
+		if !ok {
+			responsejson.JsonResponse(w, http.StatusUnauthorized, responsejson.Response{Message: "Invalid token claims", Status: false, Data: nil})
 			return
 		}
 
 		fmt.Println(claims["aud"].(map[string]interface{})["email"].(string))
 	}
-	// Your logic for fetching all users goes here
-	userData, err := userauth.AllUsersService()
+
+	userData, err := AllUsersService()
 	if err != nil {
-		response.JsonResponse(w, http.StatusOK, userauth.Response{Message: "Errors getting data", Status: false, Data: nil})
+		log.Println("Error in AllUsersService:", err)
+		responsejson.JsonResponse(w, http.StatusInternalServerError, responsejson.Response{Message: "Error fetching data", Status: false, Data: nil})
 		return
 	}
-	// No need to set headers or write response code here
-	response.JsonResponse(w, http.StatusOK, userauth.Response{Message: "All Users", Status: true, Data: userData})
+	responsejson.JsonResponse(w, http.StatusOK, responsejson.Response{Message: "All users", Status: true, Data: userData})
 }
 
 func AllOrderListController(w http.ResponseWriter, r *http.Request) {
-
-	// Your logic for fetching all users goes here
-	userData, err := userauth.AllOrderListService()
+	userData, err := AllOrderListService()
 	if err != nil {
-		response.JsonResponse(w, http.StatusOK, userauth.Response{Message: "Errors getting data", Status: false, Data: nil})
+		log.Println("Error in AllOrderListService:", err)
+		responsejson.JsonResponse(w, http.StatusInternalServerError, responsejson.Response{Message: "Error fetching data", Status: false, Data: nil})
 		return
 	}
-	// No need to set headers or write response code here
-	response.JsonResponse(w, http.StatusOK, userauth.Response{Message: "All Users", Status: true, Data: userData})
+	responsejson.JsonResponse(w, http.StatusOK, responsejson.Response{Message: "All orders", Status: true, Data: userData})
 }
